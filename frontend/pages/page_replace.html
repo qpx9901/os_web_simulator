@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <title>页面置换算法</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: "Segoe UI", Arial;
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
+            color: white;
+        }
+
+        .container {
+            width: 90%;
+            margin: auto;
+            padding-top: 30px;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        .panel {
+            background: rgba(255,255,255,0.08);
+            padding: 20px;
+            border-radius: 15px;
+            margin-bottom: 20px;
+        }
+
+        input, select {
+            padding: 8px;
+            margin: 5px;
+        }
+
+        button {
+            padding: 10px 18px;
+            border: none;
+            border-radius: 8px;
+            background: #00c6ff;
+            color: white;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #0072ff;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+
+        th, td {
+            border-bottom: 1px solid rgba(255,255,255,0.2);
+            padding: 8px;
+            text-align: center;
+        }
+
+        .hit {
+            color: #00ff99;
+        }
+
+        .fault {
+            color: #ff5252;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>页面置换算法模拟器</h1>
+
+    <div class="panel">
+
+        <label>页面引用串</label>
+        <input id="pages" value="7,0,1,2,0,3,0,4">
+
+        <label>物理块数</label>
+        <input id="frames" value="3">
+
+        <select id="algo">
+            <option value="fifo">FIFO</option>
+            <option value="lru">LRU</option>
+            <option value="opt">OPT</option>
+        </select>
+
+        <button onclick="run()">开始模拟</button>
+
+    </div>
+
+    <div class="panel">
+        <h3>缺页次数</h3>
+        <div id="faults"></div>
+    </div>
+
+    <div class="panel">
+        <h3>执行过程</h3>
+        <table id="table"></table>
+    </div>
+
+</div>
+
+<script src="../js/page_replace.js"></script>
+
+</body>
+
+</html>
