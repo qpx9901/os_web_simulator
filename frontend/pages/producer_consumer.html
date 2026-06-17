@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <title>生产者消费者模拟</title>
+
+    <style>
+
+        body{
+            margin:0;
+            font-family:"Segoe UI";
+            background:linear-gradient(
+                135deg,
+                #1e3c72,
+                #2a5298
+            );
+            color:white;
+        }
+
+        .container{
+            width:90%;
+            margin:auto;
+            padding-top:30px;
+        }
+
+        h1{
+            text-align:center;
+        }
+
+        .panel{
+            background:rgba(255,255,255,0.08);
+            padding:20px;
+            border-radius:15px;
+            margin-bottom:20px;
+        }
+
+        input{
+            padding:8px;
+            margin:5px;
+            width:100px;
+        }
+
+        button{
+            padding:10px 20px;
+            border:none;
+            border-radius:8px;
+            cursor:pointer;
+            background:#00c6ff;
+            color:white;
+        }
+
+        button:hover{
+            background:#0072ff;
+        }
+
+        #bufferArea{
+            display:flex;
+            flex-wrap:wrap;
+            gap:10px;
+            margin-top:20px;
+        }
+
+        .cell{
+            width:60px;
+            height:60px;
+            border-radius:8px;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            font-weight:bold;
+        }
+
+        .empty{
+            background:#555;
+        }
+
+        .full{
+            background:#00c853;
+        }
+
+        .consume{
+            background:#ff5252;
+        }
+
+        #log{
+            height:200px;
+            overflow-y:auto;
+            background:rgba(0,0,0,0.2);
+            padding:10px;
+            border-radius:10px;
+        }
+
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>
+        生产者消费者同步模拟
+    </h1>
+
+    <div class="panel">
+
+        <label>缓冲区大小</label>
+        <input id="bufferSize" value="10">
+
+        <label>生产者数量</label>
+        <input id="producerCount" value="2">
+
+        <label>消费者数量</label>
+        <input id="consumerCount" value="2">
+
+        <label>连续消费n个</label>
+        <input id="consumeN" value="2">
+
+        <label>模拟步数</label>
+        <input id="steps" value="20">
+
+        <label>播放速度(ms)</label>
+        <input id="speed" value="500">
+
+        <button onclick="runSimulation()">
+            开始模拟
+        </button>
+
+    </div>
+
+    <div class="panel">
+
+        <h3>缓冲区状态</h3>
+
+        <div id="bufferArea">
+
+        </div>
+
+    </div>
+
+    <div class="panel">
+
+        <h3>执行日志</h3>
+
+        <div id="log">
+
+        </div>
+
+    </div>
+
+</div>
+
+<script src="../js/producer_consumer.js"></script>
+
+</body>
+</html>
